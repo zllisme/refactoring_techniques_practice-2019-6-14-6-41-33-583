@@ -8,7 +8,9 @@ import java.util.Vector;
 public class OwingPrinter {
     void printOwing(String name, List<Order> orders) {
         double outstanding = culculateOutstanding(orders);
-        System.out.println("*****************************\r\n****** Customer totals ******\r\n*****************************\r\nname: " + name + "\r\namount: " + outstanding);
+        String owing = "*****************************\r\n****** Customer totals ******\r\n*****************************\r\n" +
+                "name: " + name + "\r\namount: " + outstanding;
+        System.out.println(owing);
     }
 
     double culculateOutstanding(List<Order> orders) {
