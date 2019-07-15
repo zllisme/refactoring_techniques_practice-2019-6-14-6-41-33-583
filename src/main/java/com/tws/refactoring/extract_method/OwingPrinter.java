@@ -12,13 +12,7 @@ public class OwingPrinter {
     }
 
     double culculateOutstanding(List<Order> orders) {
-        Iterator<Order> orderElements = orders.iterator();
-        double outstanding = 0.0;
-        while (orderElements.hasNext()) {
-            Order each = orderElements.next();
-            outstanding += each.getAmount();
-        }
-        return outstanding;
+        return orders.stream().mapToDouble(order -> order.getAmount()).sum();
     }
 }
 
