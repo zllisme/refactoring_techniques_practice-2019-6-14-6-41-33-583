@@ -7,17 +7,18 @@ import java.util.Vector;
 
 public class OwingPrinter {
     void printOwing(String name, List<Order> orders) {
-        Iterator<Order> elements = orders.iterator();
-        double outstanding = 0.0;
+        double outstanding = culculateOutstanding(orders);
+        System.out.println("*****************************\r\n****** Customer totals ******\r\n*****************************\r\nname: " + name + "\r\namount: " + outstanding);
+    }
 
-        // print owings
-        while (elements.hasNext()) {
-            Order each = (Order) elements.next();
+    double culculateOutstanding(List<Order> orders) {
+        Iterator<Order> orderElements = orders.iterator();
+        double outstanding = 0.0;
+        while (orderElements.hasNext()) {
+            Order each = orderElements.next();
             outstanding += each.getAmount();
         }
-
-        // print details
-        System.out.println("*****************************\r\n****** Customer totals ******\r\n*****************************\r\nname: " + name + "\r\namount: " + outstanding);
+        return outstanding;
     }
 }
 
